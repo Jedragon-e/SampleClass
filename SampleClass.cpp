@@ -17,7 +17,7 @@ wstring SampleClass::read_ini(LPCWSTR section, LPCWSTR name)
 	if (cBuf)
 		result = cBuf;
 	free(cBuf);
-
+	
 	if (!result.empty())
 		wprintf(L"section [%ls]\n%ls=%ls", section, name, result.c_str());
 

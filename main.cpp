@@ -8,8 +8,6 @@ int main()
 	sample->Start_0();
 	delete sample;
 
-	cout << "Hello" << endl;
-	cout << "Hello2" << endl;
 	system("pause");
 	return 0;
 }
@@ -24,3 +22,18 @@ int main()
 //   4. [오류 목록] 창을 사용하여 오류를 봅니다.
 //   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
 //   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
+
+
+//git 시작하기
+
+//0. git설치하기 
+//1. git hub repository 생성
+//2. git init
+//3. git config 설정 name / email
+//4. git remote origin url
+//5. git pull origin
+//6. 작업 수행
+//7. git branch - m master main
+//8. git add .
+//9. git commit - m ""
+//10. git push origin
