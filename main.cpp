@@ -8,6 +8,7 @@ int main()
 	sample->Start_0();
 	delete sample;
 
+	cout << "Hello" << endl;
 	system("pause");
 	return 0;
 }
