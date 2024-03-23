@@ -9,6 +9,7 @@ int main()
 	delete sample;
 
 	cout << "Hello" << endl;
+	cout << "Hello2" << endl;
 	system("pause");
 	return 0;
 }
