@@ -16,6 +16,7 @@ public:
 	wstring read_ini(LPCWSTR section, LPCWSTR name);
 	wstring s2ws(const string& str);
 	void OnKey(WORD keyCode);
+	void OnTest();
 
 	void Start_0();
 

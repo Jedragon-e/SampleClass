@@ -47,6 +47,11 @@ void SampleClass::OnKey(WORD keyCode)
 	SendInput(1, &input, sizeof(INPUT));
 }
 
+void SampleClass::OnTest()
+{
+	cout << "TEST" << endl;
+}
+
 void SampleClass::Start_0()
 {
 	wstring key = read_ini(L"Ssection", L"Nname");

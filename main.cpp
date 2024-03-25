@@ -6,6 +6,7 @@ int main()
 {
 	SampleClass* sample = new SampleClass();
 	sample->Start_0();
+	sample->OnTest();
 	delete sample;
 
 	system("pause");
