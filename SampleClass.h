@@ -19,6 +19,7 @@ public:
 	void OnTest();
 
 	void Start_0();
+	void Start_1();
 
 private:
 	string path;

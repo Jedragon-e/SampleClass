@@ -5,10 +5,11 @@
 int main()
 {
 	SampleClass* sample = new SampleClass();
-	sample->Start_0();
+	sample->Start_1();
 	sample->OnTest();
 	delete sample;
 
+	// 콘솔 창을 열어둡니다.
 	system("pause");
 	return 0;
 }

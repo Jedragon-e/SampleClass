@@ -71,3 +71,19 @@ void SampleClass::Start_0()
 		cout << "SampleClass::SampleClass >> Error" << endl;
 	}
 }
+
+void SampleClass::Start_1()
+{
+	// input
+	int consoleWidth = 600;
+
+	// 화면의 전체 해상도를 얻습니다.
+	int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+	int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+	// 콘솔 창의 핸들을 얻습니다.
+	HWND consoleWindow = GetConsoleWindow();
+
+	// 콘솔 창을 화면의 우측 하단에 위치시킵니다.
+	MoveWindow(consoleWindow, screenWidth - consoleWidth, screenHeight / 2, consoleWidth, screenHeight / 2, TRUE);
+}
