@@ -9,6 +9,8 @@ int main()
 	sample->OnTest();
 	delete sample;
 
+	cout << "Git Project Check pull" << endl;
+
 	// 콘솔 창을 열어둡니다.
 	system("pause");
 	return 0;
