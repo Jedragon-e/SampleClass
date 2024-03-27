@@ -74,8 +74,9 @@ void SampleClass::Start_0()
 
 void SampleClass::Start_1()
 {
-	// input
+	// Width Height
 	int consoleWidth = 600;
+	int consoleHeight = 1200;
 
 	// 화면의 전체 해상도를 얻습니다.
 	int screenWidth = GetSystemMetrics(SM_CXSCREEN);
@@ -85,5 +86,10 @@ void SampleClass::Start_1()
 	HWND consoleWindow = GetConsoleWindow();
 
 	// 콘솔 창을 화면의 우측 하단에 위치시킵니다.
-	MoveWindow(consoleWindow, screenWidth - consoleWidth, screenHeight / 2, consoleWidth, screenHeight / 2, TRUE);
+	MoveWindow(consoleWindow,
+		screenWidth - consoleWidth,
+		screenHeight - consoleHeight - 40,
+		consoleWidth, 
+		consoleHeight,
+		TRUE);
 }
