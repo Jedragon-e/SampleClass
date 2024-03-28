@@ -93,3 +93,12 @@ void SampleClass::Start_1()
 		consoleHeight,
 		TRUE);
 }
+
+void SampleClass::Start_2()
+{
+	for (int i = 5; i >= 1; --i) {
+		std::cout << "\r" << i << "s" << std::flush; // 현재 라인을 덮어쓰기
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+	}
+	std::cout << "\rDone!" << std::endl; // 마지막 메시지 출력
+}

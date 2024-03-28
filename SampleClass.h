@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include <thread>
+#include <chrono>
 
 #include <Windows.h>
 
@@ -18,8 +20,14 @@ public:
 	void OnKey(WORD keyCode);
 	void OnTest();
 
+	// ini Read to Sandkey
 	void Start_0();
+
+	// Console Move
 	void Start_1();
+
+	// 카운트 다운
+	void Start_2();
 
 private:
 	string path;
