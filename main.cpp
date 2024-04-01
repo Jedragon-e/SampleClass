@@ -5,7 +5,7 @@
 int main()
 {
 	SampleClass* sample = new SampleClass();
-	sample->Start_2();
+	sample->Satrt_3();
 	//sample->OnTest();
 	delete sample;
 

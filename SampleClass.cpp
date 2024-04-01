@@ -102,3 +102,23 @@ void SampleClass::Start_2()
 	}
 	std::cout << "\rDone!" << std::endl; // 마지막 메시지 출력
 }
+
+void SampleClass::Satrt_3()
+{
+	HWND hwndNotepad = FindWindow(NULL, TEXT("제목 없음 - Windows 메모장"));
+	if (hwndNotepad != NULL)
+	{
+		// 메모장 창을 화면의 최전면으로 가져옵니다.
+		SetForegroundWindow(hwndNotepad);
+
+		// 메모장 내의 특정 컨트롤 (예를 들어, 편집 컨트롤)의 핸들을 얻습니다.
+		// 메모장의 편집 컨트롤의 정확한 클래스 이름은 시스템 또는 메모장 버전에 따라 다를 수 있으므로, 
+		// 이 예제에서는 간단히 메모장의 메인 윈도우 핸들을 사용합니다.
+		HWND hwndEdit = FindWindowEx(hwndNotepad, NULL, TEXT("Edit"), NULL);
+		if (hwndEdit != NULL)
+		{
+			// 메모장의 편집 컨트롤에 포커스를 설정합니다.
+			SetFocus(hwndEdit);
+		}
+	}
+}

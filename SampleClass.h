@@ -29,6 +29,9 @@ public:
 	// 카운트 다운
 	void Start_2();
 
+	// WindowFocus
+	void Satrt_3();
+
 private:
 	string path;
 
