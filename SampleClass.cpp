@@ -78,7 +78,7 @@ int SampleClass::GetTaskbarHeight()
 	RECT rect{};
 	GetWindowRect(taskbar, &rect);
 
-	return rect.bottom = rect.top;
+	return rect.bottom - rect.top;
 }
 
 void SampleClass::Animation_On()
@@ -87,13 +87,27 @@ void SampleClass::Animation_On()
 	while (frame < 129)
 	{
 		SetWindowPos(m_hWnd, HWND_TOP,
-			(GetSystemMetrics(SM_CXSCREEN) / 2) - 128,
-			frame - 128,
+			GetSystemMetrics(SM_CXSCREEN) - 256,
+			GetSystemMetrics(SM_CYSCREEN) - frame - GetTaskbarHeight(),
 			256,
 			128,
 			SWP_SHOWWINDOW | SWP_NOSIZE);
 
 		frame++;
+		Sleep(10);
+	}
+
+	Sleep(1000);
+	while (frame > 0)
+	{
+		SetWindowPos(m_hWnd, HWND_TOP,
+			GetSystemMetrics(SM_CXSCREEN) - 256,
+			GetSystemMetrics(SM_CYSCREEN) - frame - GetTaskbarHeight(),
+			256,
+			128,
+			SWP_SHOWWINDOW | SWP_NOSIZE);
+
+		frame--;
 		Sleep(10);
 	}
 }

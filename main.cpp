@@ -9,6 +9,7 @@ int main()
 	//sample->OnTest();
 	sample->InitWindow();
 	sample->Animation_On();
+	sample->GetTaskbarHeight();
 
 	bool running = true;
 	while (running)
