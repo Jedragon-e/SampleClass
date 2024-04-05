@@ -1,5 +1,19 @@
 #include "SampleClass.h"
 
+LRESULT WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+	case WM_CLOSE:
+		DestroyWindow(hWnd);
+		break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	}
+	return DefWindowProc(hWnd, uMsg, wParam, lParam);
+}
+
 SampleClass::SampleClass()
 	:path("./data.ini")
 {
@@ -50,6 +64,38 @@ void SampleClass::OnKey(WORD keyCode)
 void SampleClass::OnTest()
 {
 	cout << "TEST" << endl;
+}
+
+int SampleClass::GetTaskbarHeight()
+{
+	HWND taskbar = FindWindow(L"Shell_TrayWnd", nullptr);
+	if (!taskbar)
+	{
+		cout << "Not Find Task Bar" << endl;
+		return -1;
+	}
+
+	RECT rect{};
+	GetWindowRect(taskbar, &rect);
+
+	return rect.bottom = rect.top;
+}
+
+void SampleClass::Animation_On()
+{
+	int frame = 0;
+	while (frame < 129)
+	{
+		SetWindowPos(m_hWnd, HWND_TOP,
+			(GetSystemMetrics(SM_CXSCREEN) / 2) - 128,
+			frame - 128,
+			256,
+			128,
+			SWP_SHOWWINDOW | SWP_NOSIZE);
+
+		frame++;
+		Sleep(10);
+	}
 }
 
 void SampleClass::Start_0()
@@ -121,4 +167,82 @@ void SampleClass::Satrt_3()
 			SetFocus(hwndEdit);
 		}
 	}
+}
+
+void SampleClass::InitWindow()
+{
+	m_hInstance = GetModuleHandle(nullptr);
+
+	const wchar_t* CLASS_NAME = L"My Window Class";
+
+	WNDCLASS wndClass = {};
+	wndClass.lpszClassName = CLASS_NAME;
+	wndClass.hInstance = m_hInstance;
+	wndClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
+	wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wndClass.lpfnWndProc = WndProc; // Fix later
+	wndClass.hbrBackground = ::CreateSolidBrush(RGB(25, 25, 25));
+
+	RegisterClass(&wndClass);
+
+	//DWORD style = WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU;
+	DWORD style = WS_POPUPWINDOW;
+
+	int width = 256;
+	int height = 256;
+
+	RECT rect{};
+	rect.left = 100;
+	rect.top = 100;
+	rect.right = rect.left + width;
+	rect.bottom = rect.top + height;
+
+	AdjustWindowRect(&rect, style, false);
+
+	m_hWnd = CreateWindowEx(
+		0,
+		CLASS_NAME,
+		L"Title",
+		style,
+		rect.left,
+		rect.top,
+		rect.right - rect.left,
+		rect.bottom - rect.top,
+		NULL,
+		NULL,
+		m_hInstance,
+		NULL
+	);
+
+	ShowWindow(m_hWnd, SW_SHOW);
+	SetWindowPos(m_hWnd, HWND_TOP,
+		(GetSystemMetrics(SM_CXSCREEN)/ 2) - 128,
+		0,
+		256,
+		128,
+		SWP_SHOWWINDOW);
+}
+
+void SampleClass::DeinitWindow()
+{
+	const wchar_t* CLASS_NAME = L"My Window Class";
+
+	UnregisterClass(CLASS_NAME, m_hInstance);
+}
+
+bool SampleClass::ProcessMessages()
+{
+	MSG msg = {};
+	while (PeekMessage(&msg, nullptr, 0u, 0u, PM_REMOVE))
+	{
+		if (msg.message == WM_QUIT)
+		{
+			return false;
+		}
+
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	return true;
 }

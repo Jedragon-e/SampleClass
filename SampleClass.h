@@ -9,6 +9,8 @@
 
 using namespace std;
 
+LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
 class SampleClass
 {
 public:
@@ -19,6 +21,8 @@ public:
 	wstring s2ws(const string& str);
 	void OnKey(WORD keyCode);
 	void OnTest();
+	int GetTaskbarHeight();
+	void Animation_On();
 
 	// ini Read to Sandkey
 	void Start_0();
@@ -32,8 +36,17 @@ public:
 	// WindowFocus
 	void Satrt_3();
 
+public:
+	void InitWindow();
+	void DeinitWindow();
+	bool ProcessMessages();
+
 private:
 	string path;
+
+private:
+	HINSTANCE m_hInstance;
+	HWND m_hWnd;
 
 };
 

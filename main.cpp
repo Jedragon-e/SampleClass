@@ -5,8 +5,24 @@
 int main()
 {
 	SampleClass* sample = new SampleClass();
-	sample->Satrt_3();
+	//sample->Satrt_3();
 	//sample->OnTest();
+	sample->InitWindow();
+	sample->Animation_On();
+
+	bool running = true;
+	while (running)
+	{
+		if (!sample->ProcessMessages())
+		{
+			cout << "Close Window\n";
+			running = false;
+		}
+		Sleep(10);
+	}
+
+	sample->DeinitWindow();
+
 	delete sample;
 
 	//cout << "Git Project Check pull" << endl;
