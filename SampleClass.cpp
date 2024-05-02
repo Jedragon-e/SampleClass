@@ -183,6 +183,19 @@ void SampleClass::Satrt_3()
 	}
 }
 
+void SampleClass::BJ_01()
+{
+
+
+	cout << "         ,r'\"7" << endl;
+	cout << "r`-_   ,'  ,/" << endl;
+	cout << " \\. \".L_r\'" << endl;
+	cout << "   `~\\/" << endl;
+	cout << "      |" << endl;
+	cout << "      |" << endl;
+
+}
+
 void SampleClass::InitWindow()
 {
 	m_hInstance = GetModuleHandle(nullptr);

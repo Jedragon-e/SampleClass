@@ -36,6 +36,8 @@ public:
 	// WindowFocus
 	void Satrt_3();
 
+	void BJ_01();
+
 public:
 	void InitWindow();
 	void DeinitWindow();

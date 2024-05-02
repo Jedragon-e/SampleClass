@@ -5,28 +5,9 @@
 int main()
 {
 	SampleClass* sample = new SampleClass();
-	//sample->Satrt_3();
-	//sample->OnTest();
-	sample->InitWindow();
-	sample->Animation_On();
-	sample->GetTaskbarHeight();
-
-	bool running = true;
-	while (running)
-	{
-		if (!sample->ProcessMessages())
-		{
-			cout << "Close Window\n";
-			running = false;
-		}
-		Sleep(10);
-	}
-
-	sample->DeinitWindow();
+	sample->BJ_01();
 
 	delete sample;
-
-	//cout << "Git Project Check pull" << endl;
 
 	// 콘솔 창을 열어둡니다.
 	system("pause");
@@ -58,15 +39,3 @@ int main()
 //8. git add .
 //9. git commit - m ""
 //10. git push origin
-
-// 메모
-// 스토브 포커스 잡기? 실행하기?
-// 아이콘 탐색 및 클릭
-// 업데이트/ 시작 체크
-// .. 대기 (시간?/ 윈도우 찾기?)
-// 윈도우 찾아서 좌측 상단으로 밀기
-// 서버 선택
-// 게임 시작
-// 2차 비밀번호 
-// 확인
-// 접속
